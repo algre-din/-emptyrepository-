@@ -1,0 +1,274 @@
+@font-face {
+    font-family: 'Restora';
+    src: url(fonts/RestoraFont/Restora.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'RestoraThinItalic';
+    src: url(fonts/RestoraFont/RestoraThinItalic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'RichardsonScriptDEMO';
+    src: url(fonts/richardson_script/RichardsonScriptDEMO.otf) format('opentype');
+}
+
+.container {
+    background-color: #fefae0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "navbar_left navbar_left navbar_left"
+    "banner banner banner"
+    "subheading subheading subheading"
+    "text_1 text_1 text_1"
+    "footer footer footer";
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "navbar_left"
+        "banner"
+        "subheading"
+        "text_1"
+        "footer"; 
+    }
+
+}
+
+/*Navbar section*/
+.navbar_left {
+    grid-area: navbar_left;
+    background-color: #fefae0;
+}
+
+.navbar_left img {
+    width: max(5vw, 50px);
+}
+
+.navbar_left ul {
+    list-style: none;
+    background: #fefae0;
+    font-family: Restora;
+}
+
+.navbar_left ul li {
+    display: inline-block;
+    position: relative;
+    padding: 0 20px 0 20px;
+    font-size: clamp(20px, 1.8vw, 25px);
+}
+
+.navbar_left ul li a {
+    color: #283618;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: clamp(20px, 2vw, 25px);
+}
+
+.navbar_left ul li ul.dropdown {
+    width: 100%;
+    background: #fefae0;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.navbar_left ul li ul.dropdown li {
+    display: block;
+}
+
+.navbar_left ul li ul.dropdown li a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar_left ul li a:hover {
+    background: #fffcea;
+}
+
+.navbar_left ul li:hover ul.dropdown {
+    display: block;
+}
+
+/*End of navbar section*/
+
+.subheading {
+    grid-area: subheading;
+    text-align: center;
+}
+
+.text_1 {
+    grid-area: text_1;
+    padding: 0 20vw 3em 20vw;
+}
+
+.video {
+    grid-area: video;
+}
+
+.video iframe {
+    display: block;
+    margin: auto;
+    width: 100%;
+    border-radius: 1em;
+}
+
+iframe {
+    border: none;
+}
+
+.testimony {
+    grid-area: testimony;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "portrait description";
+  }
+
+  @media (max-width: 600px) {
+    .testimony {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "portrait"
+        "description"; 
+    }
+}
+  
+  .portrait {
+    grid-area: portrait;
+    display: inline;
+    width: 100%;
+    border-radius: 1em;
+  }
+
+  .portrait img {
+    width: 100%;
+  }
+
+  .description {
+    grid-area: description;
+    display: inline;
+    font-size: 1em;
+    padding: 0 0 0 1em;
+  }
+
+  .description p {
+    font-size: max(1em, 15px);
+  }
+
+.footer {
+    grid-area: footer;
+    background-color: #704214;
+    text-align: center;
+    width: 100%;
+    border-radius: 1em;
+    color: #fefae0;
+}
+
+.footer p {
+    font-family: Restora;
+    font-style: normal;
+    font-size: 1em;
+    color: #fefae0;
+}
+
+h2 {
+    font-family: RichardsonScriptDEMO;
+    font-size: clamp(120px, 12vw, 200px);
+    font-weight: normal;
+    line-height: 0;
+    color: #283618;
+}
+
+h3 {
+    font-family: Restora;
+    font-size: 2em;
+}
+
+p {
+    font-family: 'RestoraThinItalic';
+    font-size: clamp(15px, 1.5vw, 35px);
+    font-style: italic;
+    line-height: 2em;
+    color: #283618;
+}
+
+.kjv {
+    text-align: right;
+    opacity: 35%;
+    font-size: 20px;
+}
+
+img {
+    width: 2em;
+}
+
+button {
+    font-family: Restora;
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 0.5rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #fefae0;
+    color: #283618;
+    border: 2px solid #283618;
+    border-radius: 0.5em;
+  }
+
+  button:hover {
+    background-color: #283618;
+    color: #fefae0;
+  }
+
+/* for tooltip*/    
+
+.Romans { 
+    position: relative; 
+    display: inline-block; 
+    cursor: pointer; 
+} 
+
+.Romanstext {
+    font-family: Restora;
+    font-size: 13px;
+    line-height: 25px;
+}
+
+.Romans .Romanstext { 
+    visibility: hidden; 
+    width: 20vw; 
+    background-color: #704214; 
+    color: #fefae0; 
+    text-align: center; 
+    border-radius: 5px; 
+    padding: 5px; 
+    position: absolute; 
+    z-index: 1; 
+    bottom: 125%; /* Position the tooltip above the text */ 
+    left: 50%; 
+    margin-left: -80px;
+    opacity: 0; 
+    transition: opacity 0.3s; 
+}
+ 
+.Romans:hover .Romanstext { 
+    visibility: visible; 
+    opacity: 1; 
+}
+
+span {
+    font-weight: bold;
+}
